@@ -14,6 +14,10 @@ class UserController extends Controller
     {
         //Lay du lieu
         $users=User::all();
+        //Render ra view
+        //Pass the $users data to the view
+        return view('users.index',['users'=>$users]);
+
     }
 
     /**
@@ -21,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        echo"create";
+        return view('users.add');
     }
 
     /**
@@ -29,7 +33,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        echo"store";
+        $input=$request->all();
+        $input['password'] = bcrypt('default_password'); // Hoặc bất kỳ giá trị nào bạn muốn
+        User::create($input);
+        return redirect('users')->with('flash_message','User Added!');
     }
 
     /**
@@ -37,7 +44,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        echo "show";
+        $user=User::find($id);
+        return view('users.show')->with('users',$user);
     }
 
     /**
@@ -45,7 +53,8 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
-        echo "edit";
+        $user=User::find($id);
+        return view('users.edit')->with('users',$user);
     }
 
     /**
@@ -53,7 +62,13 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        echo "update";
+        $user=User::find($id);
+        $input=$request->all();
+        $user->update($input);
+        return redirect()->route('users.index')->with('success', 'User updated successfully');
+        //hoặc
+        // return redirect('users')->with('success','user updated successfully');
+
     }
 
     /**
@@ -61,6 +76,8 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        echo"remove";
+        $user=User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('users')->with('success','User deleted successfully');
     }
 }
