@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name',100);
             $table->string('location');
-            $table->enum('type', ['private', 'public', 'international']);
+            $table->enum('type', ['private', 'public', 'international','bilingual ']);
             $table->timestamps();
         });
     }

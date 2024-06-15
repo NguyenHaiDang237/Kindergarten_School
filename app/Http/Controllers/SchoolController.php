@@ -16,6 +16,14 @@ class SchoolController extends Controller
         return view("schools.index",['schools'=>$school]);
     }
 
+    public function getSchoolByType(Request $request){
+        //Get Request in URL
+        $type=$request->input('type');
+        //Execute data
+        $schools=School::where('type',$type)->get();
+        return view('schools.index',compact('schools'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

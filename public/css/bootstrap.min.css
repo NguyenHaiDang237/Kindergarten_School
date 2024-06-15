@@ -2526,8 +2526,8 @@ textarea.form-control-lg {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact
+    /* -webkit-print-color-adjust: exact;
+    color-adjust: exact */
 }
 
 .form-check-input[type=checkbox] {
@@ -8345,6 +8345,13 @@ fieldset:disabled .btn {
 
 .text-primary {
     color: #81c408 !important;
+
+    
+}
+
+.text-primaryBanner {
+    color:rgb(187,187,187) !important;
+    /* color: whitesmoke !important; */
 }
 
 .text-secondary {

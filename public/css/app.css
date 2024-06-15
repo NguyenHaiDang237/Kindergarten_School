@@ -179,7 +179,7 @@
 /*** Hero Header ***/
 .hero-header {
     background: linear-gradient(rgba(248, 223, 173, 0.1), rgba(248, 223, 173, 0.1));
-    background-image: url("../img/bg3.jpg");
+    background-image: url("../img/bg5.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -451,6 +451,12 @@
 }
 /*** testimonial End ***/
 
+/* Type of schools */
+.text-primary{
+    margin-right: 5px;
+}
+
+/*** Type of schools End ***/
 
 /*** Single Page Start ***/
 .pagination {

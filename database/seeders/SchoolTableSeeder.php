@@ -20,7 +20,7 @@ class SchoolTableSeeder extends Seeder
             School::create([
                     'name' => $faker->name,
                     'location' => $faker->address,                
-                    'type' => $faker->randomElement(['private', 'public', 'international'])
+                    'type' => $faker->randomElement(['private', 'public', 'international','bilingual'])
                     
             ]);
         }
